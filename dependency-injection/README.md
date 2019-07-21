@@ -31,7 +31,7 @@ $containerBuilder
 The `Builder` class will autowire the `Definition` object.
 
 
-You can also define the service to be used for the injection of an interface by using the `Reference` object:
+You can also define the service to be used for the injection of an interface like this:
 ````PHP
 $containerBuilder->add(EntityManagerInterface::class, new Reference('entity_manager'));
 ````
@@ -42,7 +42,7 @@ Build the container using the `build` method:
 $containerBuilder->build();
 ````
 
-The Builder class builds all definitions and autowired all definitions of which the autowiring is enabled.
+The Builder class builds all definitions and autowires all definitions of which the autowiring is enabled.
 When all the definitions have been built, the definitions are initialized as services, and will be available in the container.
 
 ### Get the service from the container
@@ -52,3 +52,4 @@ $mailerService = $containerBuilder->get('mailer_service');
 ````
 Avoid using the `get()` method, you should fetch your dependencies using the constructor.
 If you use the MVC pattern, you should define your controllers as services.
+In this way the dependencies of the controllers are retrieved from the service container.
