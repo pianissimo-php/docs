@@ -53,3 +53,8 @@ $mailerService = $containerBuilder->get('mailer_service');
 Avoid using the `get()` method, you should fetch your dependencies using the constructor.
 If you use the MVC pattern, you should define your controllers as services.
 In this way the dependencies of the controllers are retrieved from the service container.
+
+### Injecting the container
+The Dependency Injection Component does not allow you to inject the service container.
+Your services should not be container aware, they do not need to know how and that they have been injected.
+[Read more](https://stackoverflow.com/questions/10356497/is-is-an-anti-pattern-to-inject-di-container-to-almost-each-class)
